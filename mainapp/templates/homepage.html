@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}  
+
+{% block  headers %}
+  <link rel="stylesheet" href="{% static 'css/post.css' %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+
+  {% for post in posts %}
+
+    <div class="post-container"> 
+      <div class="post-picture">
+          <img src="{{ post.foto.url }}" class="post-image" > 
+      </div>
+      <div class="post-likes">
+        
+        <form method="post" id="likeForm{{ post.id }}">
+          <input type="hidden" value="{{ post.id }}">
+          <button type="submit" class="btn btn-light" id="likeButton{{ post.id }}">{{ post.like_counter }} Me Gusta</button> 
+        </form>
+
+      </div>
+      <div class="post-message" > 
+          <span style="font-weight:bold" > {{ post.perfil_id.user_id }} </span> {{ post.mensaje }}
+      </div>
+      <div class="post-comments">
+        COMMENTS
+      </div>
+      <div class="post-date">
+          {{ post.fecha }}
+      </div>
+  </div>
+  <br></br>
+
+  {% endfor %}
+
+  {% block scripts %} 
+    <script>
+      const htmlForms = document.querySelectorAll('[id^="likeForm"]')
+   
+      htmlForms.forEach((element) => {
+           element.addEventListener("submit", function(e){
+               e.preventDefault();   
+               post_id = e.target.getElementsByTagName('input')[0].value
+          
+               const formData = new FormData();
+               formData.append('post_id', post_id);
+               formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+               fetch('post/like', {
+                   method: 'POST', 
+                   body: formData
+               })
+               .then(response => response.json())
+               .then(data => {
+                 document.getElementById("likeButton"+post_id).innerHTML = data.contador + " Me Gusta"
+               })
+               .catch(error => {
+                   console.error('Error:', error);
+               });
+         });
+       } )
+    </script>
+  {% endblock %}
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        {% load static %}  
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="{% static 'css/bs/bootstrap.min.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}" type="text/css" />
+
+        {% block headers %} {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-parent">
+            <a class="navbar-brand logo" href="#">InstaClon</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav navbar-menus">
+                <a class="nav-item nav-link active" href="#">Homepage</a>
+                <div class="vertical-line"></div>
+                <a class="nav-item nav-link" href="#">Explorar</a>
+                <div class="vertical-line"></div>
+                <a class="nav-item nav-link" href="#">Perfil</a>
+              </div>
+            </div>
+        </nav>
+       
+        <div class="base-container">
+            {% block content %} {% endblock %}
+        </div>  
+
+        {% block scripts %} {% endblock %}
+        <script src="{% static 'js/bs/bootstrap.min.js' %}"></script> 
+    </body>
+</html>

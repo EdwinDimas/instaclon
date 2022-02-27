@@ -1,0 +1,29 @@
+
+.navbar-parent {
+    position:fixed;
+    top:0;
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(255, 255, 255);
+    font-size: 22px;
+    padding-left: 10% ;
+    padding-right: 10%;
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+
+.navbar-menus {
+    max-width: 45%;
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.vertical-line {
+    border-left: 1px solid rgb(224, 223, 223);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+.logo {
+    font-size: 30px;
+    font-family:cursive;
+  }

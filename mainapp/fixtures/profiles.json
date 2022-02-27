@@ -1,0 +1,15 @@
+[
+    {
+        "model": "mainapp.Perfil",
+        "pk": "1",
+        "fields": {
+            "nombres": "Juan Manuel",
+            "apellidos": "Perez Lopez",
+            "mensaje": "Ningun Mensaje", 
+            "foto": "foto1.jpg",
+            "esPrivado": "False",
+            "user_id": "2"
+        }
+    }
+]
+
